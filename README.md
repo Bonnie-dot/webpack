@@ -14,8 +14,15 @@ entry:string|Array|Object{[entryChunkName:string]:string|Array}
 ## output 输出
  最低必须是一个对象，包括：
  - filename
- - path 路径必须为绝对路径
- ###多个入口文件，就是对象形式的，应该使用占位符来确保每个出口文件名称的唯一性  ****
+ - path 路径必须为绝对路径 存储你所有输出文件的本地文件目录
+ - publicPath指代你上传所有打包文件的位置（相对于服务器根目录）
+ >补充node方面的知识 
+   - __dirname当前路径目录 
+   - process.cwd() 返回进程的绝对路径
+   - path.join() 用于连接路径
+   - path.resolve 用于将路径有相对p路径转换成绝对路径
+   - npm init -y 会自动创建一个package.json文件，如果不加 -y则会手动输入相关选项
+ ### 多个入口文件，就是对象形式的，应该使用占位符来确保每个出口文件名称的唯一性  ****
  ## loader
  > 对文件的源代码进行转换，把不同语言转换成javascript 把内联图转换成data url
  使用 - 首先安装相应的loader
@@ -63,7 +70,7 @@ entry:string|Array|Object{[entryChunkName:string]:string|Array}
         > 常用的loader
         ```
         css:{test:/\.css$/,loader:'style-loader!css-loader'},
-        img:{test:/\.(png|jpg|gif)$/,loader:'url-loader?limit=8192'}
+        img:{test:/\.(png|jpg|gif)$/,loader:'url-loader?limit=8192'}//小于8192 则转换成base64(data:image/png;base64,iVBORw0KGgoAAAAN) 不会被缓存 适合小图片  urldata 大于则是一般图片展现形式 只是图片名为hash值 会被缓存
         js:{test:/\.js$/,loader:'babel-loader?presets[]=es2015',exclude:/node_modules/}
         ......
         ```
@@ -86,6 +93,8 @@ externals: {
 常用插件
 - CommonsChunkPlugin
 > 这个文件包括<font color=red size=72>多个入口</font> chunk 的公共模块。通过将公共模块拆出来，最终合成的文件能够在最开始的时候加载一次，便存起来到缓存中供后续使用。这个带来速度上的提升，因为浏览器会迅速将公共的代码从缓存中取出来，而不是每次访问一个新页面时，再去加载一个更大的文件
+- uglifyjs-webpack-plugin
+> 压缩文件大小插件
 补充：require.ensure 异步加载和代码分割
 >  把一些js模块给独立出一个个js文件，然后需要用到的时候，在创建一个script对象，加入到document.head对象中即可。会形成一个独立的js文件，require.ensure([modules],callback)
 ## webpack 搭建服务器 cnpm install webpack-dev-server --save-dev  使用webpack-dev-server
