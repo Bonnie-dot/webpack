@@ -4,7 +4,7 @@
  * @Describe:
  */
 var webpack=require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpackConfig-plugin')
 module.exports={
     entry:__dirname+"/main.js",
     output:{

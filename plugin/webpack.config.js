@@ -13,7 +13,7 @@ var config={
         filename:'[name].js'
     },
     plugins:[
-        // new webpack.optimize.UglifyJsPlugin({
+        // new webpackConfig.optimize.UglifyJsPlugin({
         //     compress:{
         //         warning:false
         //     }

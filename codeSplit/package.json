@@ -1,0 +1,17 @@
+{
+  "name": "codeSplit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "preventDuplication": "webpack --config ./src/preventDuplication/webpack.config.js",
+    "dynamicImport": "webpack --config src/dynamicImport/webpack.config.js"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "webpack": "^5.75.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.0.1"
+  }
+}

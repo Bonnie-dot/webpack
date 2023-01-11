@@ -4,7 +4,7 @@
  * @Describe:
  */
 var CommonsChunkPlugin=require('webpack/lib/optimize/CommonsChunkPlugin');
-//var CommonsChunkPlugin=require('webpack/lib/optimize/CommonsChunksPlugin');
+//var CommonsChunkPlugin=require('webpackConfig/lib/optimize/CommonsChunksPlugin');
 var config={
     entry:{
         'main':process.cwd()+'/main.js',

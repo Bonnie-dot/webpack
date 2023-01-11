@@ -23,7 +23,7 @@
 
 /*对象形式*/
 /*多个入口文件，就是对象形式的，应该使用占位符来确保每个出口文件名称的唯一性 */
-var _dirname='/Users/chenqing/webpack';
+var _dirname='/Users/chenqing/webpackConfig';
 const config={
    entry:{
      'main':'./main.js',

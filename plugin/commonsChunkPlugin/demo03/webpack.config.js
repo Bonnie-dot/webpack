@@ -3,7 +3,7 @@
  * @Date:2018/1/3
  * @Describe:
  */
-var CommonsChunkPlugin=require('webpack/lib/optimize/commonsChunkPlugin');
+var CommonsChunkPlugin=require('webpackConfig/lib/optimize/commonsChunkPlugin');
 var config={
     entry:{
         'main':process.cwd()+'/main.js',
